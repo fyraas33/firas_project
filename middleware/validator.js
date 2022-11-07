@@ -4,7 +4,7 @@ const {check, validationResult}=require("express-validator")
 
 exports.registerRules=()=>
     [
-    check("fullname","fullname is require").notEmpty(),
+    check("username","username is require").notEmpty(),
     check("email","email is require").notEmpty(),
     check("email","check email again").isEmail(),
     check("password","password is require").isLength({
@@ -38,3 +38,15 @@ exports.validation =(req,res,next)=>{
    } 
    next();
 };
+
+
+
+exports.addpostRules=()=>
+    [
+    check("postName","postName is require").notEmpty(),
+    check("pic","pic is require").notEmpty(),
+    check("phoneNumber","phoneNumber is require").notEmpty(),
+    check("category","category is require").notEmpty(),
+    
+
+];

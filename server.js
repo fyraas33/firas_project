@@ -1,7 +1,10 @@
 const express = require("express");
+const cors = require("cors");
 const connectDB = require("./config/DBconnect");
 const app = express();
+app.use(cors());
 require('dotenv').config();
+
 
 
 
@@ -10,6 +13,7 @@ connectDB();
 //routes
 app.use(express.json());
 app.use("/user",require("./routes/user"));
+app.use("/post",require("./routes/postRouter"));
 
 
 
