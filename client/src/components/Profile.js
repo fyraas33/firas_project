@@ -1,62 +1,61 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
-import '../css/profile.css' ;
-import Card from './Card';
-function Profile() {
-  const user=useSelector(store=>store.user?.user)
-  console.log(user)
+import React from "react";
+import { useSelector } from "react-redux";
+import { Link, Outlet } from "react-router-dom";
+import "../css/profile.css";
+
+function Profile({ ping, setPing }) {
+  const user = useSelector((store) => store.user?.user);
+  console.log(user);
   return (
     <div>
-      
-     {/* <div className="cardp">
+      {/* <div className="cardp">
         <img src={user?.avatar} alt="Avatar" style={{width: '200px',height:'200px'}} /> */}
-           <div className="wrapper">
+      <div className="wrapper">
         <div className="left">
-        <img src={`.${user?.avatar}`} alt="Avatar" style={{width: '100px',height:'100px'}} />
-          <h4>Alex William</h4>
-          <p>UI Developer</p>
+          <img
+            src={`.${user?.avatar}`}
+            alt="Avatar"
+            className="teswira"
+          />
+          <Link to={"/profile/view"}>  <h2 className="nme" >{user?.username}</h2></Link>
+
+          <ul className="prfl">
+            <Link to={"/profile/edit"}> <li>Edit profile</li></Link>
+            <Link to={"/profile/post"}><li >Add your service</li></Link>
+            <Link to={"/profile/service"}>  <li>Your service</li></Link>
+          </ul>
         </div>
+
         <div className="right">
-          <div className="info">
-            <h3>Information</h3>
-            <div className="info_data">
-              <div className="data">
-                <h4>Email</h4>
-                <p>alex@gmail.com</p>
+         
+          {/* <div className="containerb">
+            <h1 className="title">Edit profile</h1>
+            <div className="grid">
+              <div className="form-group a">
+                <label htmlFor="name">Username</label>
+                <input
+                  id="name"
+                  type="text"
+                  placeholder={`${user?.username}`}
+                />
               </div>
-              <div className="data">
-                <h4>Phone</h4>
-                <p>0001-213-998761</p>
-              </div>
-            </div>
-          </div>
-          <div className="projects">
-            <h3>Projects</h3>
-            <div className="projects_data">
-              <div className="data">
-                <h4>Recent</h4>
-                <p>Lorem ipsum dolor sit amet.</p>
-              </div>
-              <div className="data">
-                <h4>Most Viewed</h4>
-                <p>dolor sit amet.</p>
+
+              <div className="form-group email-group">
+                <label htmlFor="email">Email</label>
+                <input id="email" type="text" placeholder={`${user?.email}`} />
               </div>
             </div>
-          </div>
-          <div className="social_media">
-            <ul>
-              <li><a href="#"><i className="fab fa-facebook-f" /></a></li>
-              <li><a href="#"><i className="fab fa-twitter" /></a></li>
-              <li><a href="#"><i className="fab fa-instagram" /></a></li>
-            </ul>
-          </div>
+
+            <div className="button-containerb">
+              <button className="button">Save</button>
+            </div>
+          </div> */}
+
+          <Outlet />
         </div>
       </div>
-      {/* </div> */}
-   
-         
-       </div>
-  )
+    </div>
+  );
 }
 
-export default Profile
+export default Profile;

@@ -39,9 +39,9 @@ postRouter.get("/posts/:category", async (req, res) => {
 
 //add post
 postRouter.post("/add",addpostRules(),validation, async (req,res)=>{
-  const {postName,logo,description,pic,location,phoneNumber,category,facebook,instagram} = req.body;
+  // const {postName,logo,description,pic,location,phoneNumber,category,facebook,instagram} = req.body;{postName,logo,description,pic,location,phoneNumber,category,facebook,instagram}
   try {
-    let newPost = new Post({postName,logo,description,pic,location,phoneNumber,category,facebook,instagram});
+    let newPost = new Post(req.body);
     let result = await newPost.save();
     res.send({ Posts: result, msg: "add new Post" });
   } catch (error) {

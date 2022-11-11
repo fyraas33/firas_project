@@ -19,6 +19,11 @@ avatar: {
     type: String,
     default:'/logodef.png',
 },
+phone:{
+    type: Number,
+    require: false
+},
+
 });
 
 

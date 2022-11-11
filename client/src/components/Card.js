@@ -2,7 +2,7 @@
 import '../css/card.css' ;
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 
 function Card({el}) {
@@ -10,7 +10,7 @@ function Card({el}) {
   return (
     <div>
       
- <div className="containerr">
+      <Link to={"/details"}> <div className="containerr">
   <div className="flex-containerr">
     <div className="cardd">
       <div
@@ -58,7 +58,7 @@ function Card({el}) {
      
     
   </div>
-</div>
+</div></Link>
 
 
       

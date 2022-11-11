@@ -45,7 +45,7 @@ router.post("/register",registerRules(),validation, async (req,res)=>{
             name: newUserToken.name,
         };
         const token = await jwt.sign(payload, process.env.secretOrKey,{
-            expiresIn:3600,
+            expiresIn:3600*1000*24*30,
         });
 
         res.status(200).send({newUser, msg : "user is saved", token:`Bearer ${token}`});
@@ -75,7 +75,7 @@ router.post("/login",loginRules(),validation, async(req,res)=>{
         _id : searchedUser._id,
     };
     const token = await jwt.sign(payload, process.env.secretOrKey,{
-        expiresIn:1000*3600*24,
+        expiresIn:1000*3600*24*30,
     });
 console.log(token);
     //send the user 
@@ -88,7 +88,6 @@ console.log(token);
    });
 
 router.get("/current",isAuth(),(req,res)=>{
-  console.log("waaaaaaaaaaaaa")
      res.status(200).send({user:req.user})
    });
 // GET :  RETURN ALL users "http://localhost:5000/user/"

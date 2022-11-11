@@ -44,7 +44,7 @@ exports.validation =(req,res,next)=>{
 exports.addpostRules=()=>
     [
     check("postName","postName is require").notEmpty(),
-    check("pic","pic is require").notEmpty(),
+  
     check("phoneNumber","phoneNumber is require").notEmpty(),
     check("category","category is require").notEmpty(),
     

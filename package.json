@@ -11,14 +11,19 @@
   "author": "fyraas",
   "license": "ISC",
   "dependencies": {
+    "@googlemaps/react-wrapper": "^1.1.35",
     "bcrypt": "^5.1.0",
+    "cloudinary-react": "^1.8.1",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "express-validator": "^6.14.2",
     "jsonwebtoken": "^8.5.1",
+    "leaflet": "^1.9.2",
     "mongoose": "^6.6.5",
     "passport": "^0.6.0",
-    "passport-jwt": "^4.0.0"
+    "passport-jwt": "^4.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "concurrently": "^7.4.0",

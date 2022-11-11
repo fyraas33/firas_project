@@ -23,7 +23,17 @@ export const getPost = createAsyncThunk("post/getall", async (post) => {
         console.log(error);
     }
 });
+// delete a post
 
+export const delPost = createAsyncThunk("post/delete/:id", async ({ id }) => {
+    console.log(id)
+    try {
+      let response = await axios.delete(`http://localhost:5000/post/delete/${id}`);
+      return await response;
+    } catch (error) {
+      console.log(error);
+    }
+  });
 
 
 
@@ -62,8 +72,21 @@ export const postSlice = createSlice({
         [getPost.rejected]: (state) => {
             state.status = "failed";
         },
+        // delete extrareducers
+
+    [delPost.pending]: (state) => {
+        state.status = "pending";
+      },
+      [delPost.fulfilled]: (state, action) => {
+        state.status = "successful";
+      },
+      [delPost  .rejected]: (state) => {
+        state.status = "failed";
+      },
+  
 
     },
+   
 
 
 

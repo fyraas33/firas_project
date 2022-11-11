@@ -59,7 +59,7 @@ export default function Login() {
           onClick={()=>{
             dispatch(userRegister(register));
             setTimeout(() => {
-              navigate("/profile")
+              navigate("/profile/view")
             }, 400);
             setTimeout(() => {
               window.location.reload();
@@ -98,7 +98,7 @@ export default function Login() {
           onClick={()=>{
             dispatch(userLogin(login));
               setTimeout(() => {
-                navigate("/profile")
+                navigate("/profile/view")
               }, 400);
               setTimeout(() => {
                 window.location.reload();

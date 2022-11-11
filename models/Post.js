@@ -2,6 +2,11 @@ const mongoose = require("mongoose");
 const schema = mongoose.Schema
 
 const PostSchema = new schema({
+    user_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+
 postName: {
     type: String,
     unique: true,
@@ -10,7 +15,7 @@ postName: {
 logo: {
     type: String,
     default:'../photo/logodef.png',
-    require: false
+    
 },
 description: {
     type: String,
@@ -18,11 +23,17 @@ description: {
 },
 pic:{
     type: String,
-    require: true
-},
-location: {
-    type: String,
     require: false
+},
+localisationMap: {
+    lat: {
+        type: String,
+        required: false
+    },
+    lng: {
+        type: String,
+        required: false
+    }
 },
 phoneNumber:{
     type: Number,

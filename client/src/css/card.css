@@ -11,7 +11,7 @@
   
  
   a {
-    color: #E76C67;
+    color: #000000;
     text-decoration: none;
     -webkit-transition: all .3s ease;
     transition: all .3s ease; }
@@ -29,6 +29,7 @@
       display: flex; } }
   
   .cardd {
+    overflow-wrap: break-word;
     -webkit-box-flex: 1;
     -ms-flex: 1 1 50%;
     flex: 1 1 50%;

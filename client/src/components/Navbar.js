@@ -15,7 +15,7 @@ const Navbar = () => {
     <div>
       <nav class="navbar">
      {/* <!-- LOGO --> */}
-     <div class="logo">MUO</div>
+     <div class="logo">FIRAS</div>
      {/* <!-- NAVIGATION MENU --> */}
      <ul class="nav-links">
        {/* <!-- USING CHECKBOX HACK --> */}
@@ -36,11 +36,11 @@ const Navbar = () => {
              <Link to="/service/phone repairer"><li>Dropdown 4</li></Link>
            </ul>
          </li>
-        <li><a href="/">Contact</a></li>
+        <li><Link to="/contact" >Contact</Link></li>
         
-        { isAuth? <Link to='/profile'> <li class="services"  >{user?.username} 
+        { isAuth? <Link to='/profile/view'> <li class="services"  >{user?.username} 
           <ul class="dropdown">
-          <Link to='/'> <li onClick={()=>{dispatch(logout());}}><a href="/">Logout </a></li></Link>
+          <Link to='/'> <li onClick={()=>{dispatch(logout());}}>Logout </li></Link>
              
            </ul>
         
