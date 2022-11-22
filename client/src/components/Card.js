@@ -1,25 +1,29 @@
 
 import '../css/card.css' ;
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
-
+import axios from 'axios';
+import { useEffect } from 'react';
+import CallIcon from '@mui/icons-material/Call';
 
 function Card({el}) {
+  
 
   return (
     <div>
-      
-      <Link to={"/details"}> <div className="containerr">
+       
+      <Link to={"/details"} state={{post:el}}> <div className="containerr">
   <div className="flex-containerr">
     <div className="cardd">
+      
       <div
         className="cardd-image"
-        style={{ backgroundImage: `url(${el.pic})` }}
+        style={{ backgroundImage: `url(${el?.image[0]?.url})` }}
       />
       <div className="cardd-content">
-        <h1>{el.postName}</h1>
-        <div className="subtitle">{el.category}</div>
+        <h1>{el?.postName}</h1>
+        <div className="subtitle">{el?.category}</div>
         <p>
           {el.description}
         </p>
@@ -37,7 +41,7 @@ function Card({el}) {
               <div className="comments">
                 <a href="#!">
                   <i className="fa fa-comments-o" />
-                  16 comments
+                <CallIcon/>  {el?.phoneNumber}
                 </a>
               </div>
               <div className="likes">
@@ -52,7 +56,9 @@ function Card({el}) {
       </div>
     </div>
    
-           
+          
+
+     
          
        
      
@@ -61,8 +67,8 @@ function Card({el}) {
 </div></Link>
 
 
-      
-    </div>
+</div>
+  
   )
 }
 

@@ -21,10 +21,7 @@ description: {
     type: String,
     require:false
 },
-pic:{
-    type: String,
-    require: false
-},
+
 localisationMap: {
     lat: {
         type: String,
@@ -50,8 +47,21 @@ category : {
     type: String,
     require: true
 
-}
-
+},
+status:{
+    type:Boolean,
+    default:false
+},
+Adress:{
+    type:String,
+    required:false
+},
+image:[{url:String}],
+feedback: [
+    {
+      comment: { type: String },
+    },
+  ],
 
 
 });

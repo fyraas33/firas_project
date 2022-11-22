@@ -13,7 +13,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav class="navbar">
+      <nav class="mainnav">
      {/* <!-- LOGO --> */}
      <div class="logo">FIRAS</div>
      {/* <!-- NAVIGATION MENU --> */}
@@ -27,19 +27,20 @@ const Navbar = () => {
          <li><a href="/">About</a></li>
          <li class="services">
             Services
-           {/* <!-- DROPDOWN MENU --> */}
-           <ul class="dropdown">
-             <Link to="/service/phone repairer"><li>Phone </li></Link>
+           {/* <!-- DROPDOWN1 MENU --> */}
+           <ul class="dropdown1">
+             <Link to="/service/phone repairer"><li>Phone Repairer </li></Link>
              <Link to="/service/blacksmith"><li>Blacksmith</li></Link>
-             <Link to="/service/phone repairer"><li>Dropdown 2</li></Link>
-             <Link to="/service/phone repairer"><li>Dropdown 3</li></Link>
-             <Link to="/service/phone repairer"><li>Dropdown 4</li></Link>
+             <Link to="/service/Plumber"><li>Plumber</li></Link>
+             <Link to="/service/Mechanical"><li>Mechanical</li></Link>
+             <Link to="/service/phone repairer"><li>Dropdown1 4</li></Link>
            </ul>
          </li>
         <li><Link to="/contact" >Contact</Link></li>
         
-        { isAuth? <Link to='/profile/view'> <li class="services"  >{user?.username} 
-          <ul class="dropdown">
+        { isAuth? <Link to='/profile'> <li class="services"  >{user?.username} 
+          <ul class="dropdown1">
+         {user?.status=="admin"? <Link  to='/dashboard'> <li >Dashboard </li></Link>:null}
           <Link to='/'> <li onClick={()=>{dispatch(logout());}}>Logout </li></Link>
              
            </ul>

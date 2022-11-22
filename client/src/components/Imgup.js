@@ -5,7 +5,7 @@ import axios from "axios";
 // import { addServiceFile } from "../../redux/slices/serviceSlice";
 // import "../Styles/AddFiles.css";
 
-function Imgup( {setActivity,activity}) {
+function AddFiles( {setPost,Post}) {
 //   const user = useSelector((state) => state.user?.user);
 //   const dispatch = useDispatch();
 //   const [show, setshow] = useState(false);
@@ -30,8 +30,8 @@ function Imgup( {setActivity,activity}) {
       const formData = new FormData();
       formData.append("file", file);
       // formData.append("tags", `codeinfuse, medium, gist`);
-      formData.append("upload_preset", "souhaibsm"); // Replace the preset name with your own
-      formData.append("api_key", "394745118979722"); // Replace API key with your own Cloudinary key
+      formData.append("upload_preset", "iosk7nzi"); // Replace the preset name with your own
+      formData.append("api_key", "456821689281721"); // Replace API key with your own Cloudinary key
       formData.append("timestamp", (Date.now() / 1000) | 0);
 
       const config = {
@@ -49,7 +49,7 @@ function Imgup( {setActivity,activity}) {
       // Make an AJAX upload request using Axios (replace Cloudinary URL below with your own)
       return await axios
         .post(
-          "https://api.cloudinary.com/v1_1/dh5a6dj9c/upload",
+          "https://api.cloudinary.com/v1_1/dzendqev2/upload",
           formData,
           config,
           {
@@ -68,7 +68,7 @@ function Imgup( {setActivity,activity}) {
     // Once all the files are uploaded
     await axios.all(uploaders).then(async (result) => {
       setfile({ ...file, files: result });
-      setActivity({...activity , tof: result})
+      setPost({...Post , image: result})
      
     //   dispatch(addServiceFile({ ...file, files: result }));
     //   setPing(!ping);
@@ -113,4 +113,5 @@ function Imgup( {setActivity,activity}) {
     </div>
   );
 }
-export default Imgup
+
+export default AddFiles;

@@ -12,13 +12,13 @@
    li {
     list-style: none;
    }
-   /* NAVBAR STYLING STARTS */
-.navbar {
+   /* mainnav STYLING STARTS */
+.mainnav {
     padding-right: 70px !important;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
+    padding: 10px;
     background-color: #333;
     color: #fff;
     box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;
@@ -31,7 +31,7 @@
    .logo {
     font-size: 32px;
    }
-   /* NAVBAR MENU */
+   /* mainnav MENU */
    .menu {
     display: flex;
     gap: 3em;
@@ -48,11 +48,11 @@
     padding: 5px 14px;
     
    }
-   /* DROPDOWN MENU */
+   /* DROPDOWN1 MENU */
    .services {
     position: relative; 
    }
-   .dropdown {
+   .dropdown1 {
     left: -20px;
     background-color: #333;
     padding: 1em 0 ;
@@ -62,21 +62,21 @@
     border-radius: 8px;
     top: 35px;
    }
-   .dropdown li + li {
+   .dropdown1 li + li {
     margin-top: 10px;
    }
-   .dropdown li {
+   .dropdown1 li {
     padding: 0.5em 1em;
     width: 8em;
     text-align: center;
    }
-   .dropdown li:hover {
+   .dropdown1 li:hover {
     background-color: rgb(37, 109, 133);
    }
-   .services:hover .dropdown {
+   .services:hover .dropdown1 {
     display: block;
    }
-   /*RESPONSIVE NAVBAR MENU STARTS*/
+   /*RESPONSIVE mainnav MENU STARTS*/
 /* CHECKBOX HACK */
 input[type=checkbox]{
     display: none;
@@ -115,12 +115,12 @@ input[type=checkbox]{
     background-color:#333;
     color: white;
    }
-   .dropdown {
+   .dropdown1 {
     left: 50%;
     top: 30px;
     transform: translateX(35%);
    }
-   .dropdown li:hover {
+   .dropdown1 li:hover {
     background-color: rgb(37, 109, 133);
    }
    }

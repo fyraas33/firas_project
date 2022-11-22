@@ -1,0 +1,12 @@
+.cat1{
+    margin-right: 70vw;
+}
+
+
+.cover-scroll-layout-talel{
+    display: flex;
+    overflow: auto;
+    overflow-y: scroll;
+    cursor: pointer;
+}
+

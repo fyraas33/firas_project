@@ -1,0 +1,65 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  .dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 30px;
+    text-align: center;
+  }
+  
+  .dashleft {
+    background-color: #020101;
+    padding: 10px;
+    
+  }
+  
+  .dashright {
+    background-color: dodgerblue;
+  
+    flex: 50%;
+    width: 20vw;
+    background: #fff;
+    padding: 30px 25px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow: scroll;
+    height: 600px;
+  }
+  
+  /* Responsive layout - makes a one column-layout instead of a two-column layout */
+  @media (max-width: 800px) {
+    .dashright, .dashleft {
+      flex: 100%;
+    }
+  }
+
+
+
+
+  .userlist{
+    width: 60%;
+    margin-left: 30px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding : 8px 40px;
+    box-shadow: 1px 1px 5px
+    
+}
+.userlist:hover {
+    transform: scale(1.07);
+  }
+  .delbtn{
+    cursor: pointer;
+   
+  }
+  .delbtn:hover {
+    transform: scale(1.57);
+    color: red;
+  }
+
+  .usersrvs{
+    width: 50%;
+  }

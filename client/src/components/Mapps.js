@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react'
-import { Map, TileLayer, Marker, ZoomControl } from 'react-leaflet'
+import { Map, TileLayer, Marker, ZoomControl,Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import L, { marker } from 'leaflet'
 
@@ -37,8 +37,11 @@ const Mapps = ({ annonce, setAnnonce }) => {
         <ZoomControl position={"bottomright"}>
 
         </ZoomControl>
-        {state.x > 0 && (<Marker position={state.marker}>
-        </Marker>)}
+        <Marker position={annonce?.localisationMap}>
+        <Popup>
+             <h5>Firas carpenter</h5>
+          </Popup>
+        </Marker>
       </Map>
 
     </div>

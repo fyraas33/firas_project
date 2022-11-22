@@ -4,6 +4,7 @@ const ObjectID = require("mongoose").Types.ObjectId;
 const Post = require("../models/Post");
 const {addpostRules,validation} =require("../middleware/validator");
 
+const multer = require("multer");
 
 
 //get all post
@@ -49,6 +50,16 @@ postRouter.post("/add",addpostRules(),validation, async (req,res)=>{
     console.log(error);
   }
 });
+// PUT : EDIT A post BY ID
+  
+postRouter.put("/editPost/:id", async (req, res) => {
+  try {
+    const result = await Post.findByIdAndUpdate({_id: req.params.id},{$set:req.body},{new:true});
+    res.send({Post:result, msg:"post updated"});
+  } catch (error) {
+    console.log("can't update post");
+  }
+});
 
 //delete post
 postRouter.delete("/delete/:id", async (req, res) => {
@@ -60,59 +71,93 @@ postRouter.delete("/delete/:id", async (req, res) => {
     console.log(error);
   }
 });
-// comments
-postRouter.patch("/comment-post/:id", async (req, res) => {
-  if (!ObjectID.isValid(req.params.id))
-    return res.status(400).send("ID unknown : " + req.params.id);
-
+// Get all feedback
+// http://localhost:5000/post/allfeeds
+postRouter.get("/allfeeds", async (req, res) => {
   try {
-
-
-   
-    return await Post.findByIdAndUpdate(
-      req.params.id,
-      {
-        $push: {
-          Comments: {
-            commenterId: req.body.commenterId,
-            commenterPseudo: req.body.commenterPseudo,
-            text: req.body.text,
-            note: req.body.note,
-            timestamp: new Date(),
-          },
-        },
-      },
-      { new: true }
-    )
-      .then((result) => res.send({ Posts: result }))
-      .catch((err) => res.status(500).send({ message: err }));
-  } catch (err) {
-    return res.status(400).send(err);
+    let result = await ServiceFiles.find()
+      .populate("id_project", ["projectName", "id_user"])
+      .populate("services", "serviceType");
+    res.send({ allfeeds: result, msg: "done" });
+  } catch (error) {
+    console.log(error);
   }
 });
-//delete comment
-postRouter.patch("/delete-comment-post/:id", async (req, res) => {
-  console.log(req.body.Id_comment)
-  if (!ObjectID.isValid(req.params.id))
-    return res.status(400).send("ID unknown : " + req.params.id);
-
+// add feedback to file
+postRouter.put("/feedback/:id", async (req, res) => {
   try {
-    return await Post.findByIdAndUpdate(
-      req.params.id,
+    let newFeed = req.body;
+    console.log(newFeed);
+    var result = await ServiceFiles.findOneAndUpdate(
       {
-        $pull: {
-          Comments: {
-            _id: req.body.Id_comment,
-          },
-        },
+        _id: req.params.id,
       },
+      { $push: { feedback: newFeed } },
       { new: true }
-    )
-      .then((result) => res.send({posts:result,msg:"comment supprimee"}))
-      .catch((err) => res.status(500).send({ message: err }));
-  } catch (err) {
-    return res.status(400).send(err);
+    );
+
+    res.send({ result: result, msg: "feedback added" });
+  } catch (error) {
+    res.send(error);
+    console.log(error);
   }
 });
+
+
+
+// //upload img
+// const Storage = multer.diskStorage({
+//   destination: "upload",
+//   filename: (req, file, cb) => {
+//     cb(null, file.originalname);
+//   },
+// });
+// const upload = multer({
+//   storage: Storage,
+// }).single("testImage");
+
+// postRouter.put("/upload/:id", (req, res) => {
+//   upload(req, res, (err) => {
+//       if (err) {
+//         console.log(err);
+//       } else {
+//       Post.findByIdAndUpdate(req.params.id,
+//     {
+//       $set: {
+//         image: {
+//             data: req.file.filename,
+//             contentType: "image/jpg",
+//         },
+//       },
+//     },
+//     { new: true }
+//     ).then((result) => res.send({msg:"success upload",post:result}))
+//     .catch((err) => console.log(err));
+//   }});
+//   postRouter.get('/gett/:id',async (req,res)=>{
+//     const allData = await Post.find()
+//     res.json(allData)
+//   })
+
+
+ 
+  // upload(req, res, (err) => {
+  //   if (err) {
+  //     console.log(err);
+  //   } else {
+  //     const newImage = new ImageModel({
+  //       name: req.body.name,
+  //       image: {
+  //         data: req.file.filename,
+  //         contentType: "image/png",
+  //       },
+  //     });
+  //     newImage
+  //       .save()
+  //       .then(() => res.send("success upload"))
+  //       .catch((err) => console.log(err));
+  //   }
+  // });
+
 
 module.exports = postRouter;

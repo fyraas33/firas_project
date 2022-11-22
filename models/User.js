@@ -23,6 +23,18 @@ phone:{
     type: Number,
     require: false
 },
+status:{
+    type:String,
+    default:"user"
+},
+adress:{
+    type:String,
+    required:false
+},
+aboutme:{
+    type:String,
+    require:false
+},
 
 });
 

@@ -24,16 +24,16 @@ export default function Login() {
   
     return (
       <div>
-        <div id="container" className={`container ${toggle}`}>
-  {/* FORM SECTION */}
-  <div className="row">
+        <div id="container4" className={`container4 ${toggle}`}>
+  {/* FORM4 SECTION */}
+  <div className="row4">
     {/* SIGN UP */}
-    <div className="col align-items-center flex-col sign-up">
-      <div className="form-wrapper align-items-center">
-        <div className="form sign-up">
+    <div className="col4 align-items-center flex-col4 sign-up">
+      <div className="form4-wrapper align-items-center">
+        <div className="form4 sign-up">
           <div className="input-group">
             <i className="bx bxs-user" />
-            <input type="text" placeholder="User Name"
+            <input type="text4" placeholder="User Name"
             onChange={(e)=> setregister({...register,username:e.target.value})}
             />
           </div>
@@ -59,11 +59,11 @@ export default function Login() {
           onClick={()=>{
             dispatch(userRegister(register));
             setTimeout(() => {
-              navigate("/profile/view")
-            }, 400);
+              navigate("/profile")
+            }, 1400);
             setTimeout(() => {
               window.location.reload();
-            }, 400);
+            }, 1400);
           }}
           >Sign up</button>
           <p>
@@ -79,14 +79,14 @@ export default function Login() {
     {/* END SIGN UP */}
     {/* SIGN IN */}
    
-    <div className="col align-items-center flex-col sign-in">
+    <div className="col4 align-items-center flex-col4 sign-in">
    
-      <div className="form-wrapper align-items-center">
+      <div className="form4-wrapper align-items-center">
         
-        <div className="form sign-in">
+        <div className="form4 sign-in">
           <div className="input-group">
             <i className="bx bxs-user" />
-            <input type="text" placeholder="Email/User Name"
+            <input type="text4" placeholder="Email/User Name"
              onChange={ (e)=> setlogin({...login,email:e.target.value})} />
           </div>
           <div className="input-group">
@@ -98,7 +98,7 @@ export default function Login() {
           onClick={()=>{
             dispatch(userLogin(login));
               setTimeout(() => {
-                navigate("/profile/view")
+                navigate("/profile")
               }, 400);
               setTimeout(() => {
                 window.location.reload();
@@ -122,12 +122,12 @@ export default function Login() {
    
     {/* END SIGN IN */}
   </div>
-  {/* END FORM SECTION */}
+  {/* END FORM4 SECTION */}
   {/* CONTENT SECTION */}
-  <div className="row content-row">
+  <div className="row4 content-row4">
     {/* SIGN IN CONTENT */}
-    <div className="col align-items-center flex-col">
-      <div className="text sign-in">
+    <div className="col4 align-items-center flex-col4">
+      <div className="text4 sign-in">
         <h2>Welcome back</h2>
         
       </div>
@@ -135,9 +135,9 @@ export default function Login() {
     </div>
     {/* END SIGN IN CONTENT */}
     {/* SIGN UP CONTENT */}
-    <div className="col align-items-center flex-col">
+    <div className="col4 align-items-center flex-col4">
       
-      <div className="text sign-up">
+      <div className="text4 sign-up">
         <h2>Join with us</h2>
        
       </div>

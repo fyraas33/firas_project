@@ -57,7 +57,7 @@ export const updateUser = createAsyncThunk("updateuser", async ({ id, user }) =>
 
 // delete a User
 
-export const deleteUser = createAsyncThunk("deleteuser", async ({ id }) => {
+export const deleteUser = createAsyncThunk("user/delete/:id", async ({ id }) => {
   console.log(id)
   try {
     let response = await axios.delete(`http://localhost:5000/user/delete/${id}`);
@@ -85,6 +85,7 @@ export const userCurrent = createAsyncThunk("user/current",async () => {
 const initialState = {
   user: null,
   status: null,
+  users:[],
 }
 
 export const userSlice = createSlice({

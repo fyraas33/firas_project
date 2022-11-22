@@ -9,7 +9,7 @@ function Post() {
   return (
     <div>
       
-    {posts?.filter(el=>el.category.toLowerCase() === params.category.toLocaleLowerCase()).map((el,i)=><Card el={el}/>)}
+    {posts?.filter(el=>el.category.toLowerCase() === params.category.toLocaleLowerCase()).filter(el=>el?.status).map((el,i)=><Card el={el}/>)}
     </div>
   )
 }

@@ -23,6 +23,17 @@ export const getPost = createAsyncThunk("post/getall", async (post) => {
         console.log(error);
     }
 });
+// update a POST
+
+export const editPost = createAsyncThunk("post/editPost/:id", async ({ id, status }) => {
+    try {
+      let response = await axios.put(`http://localhost:5000/post/editPost/${id}`, status);
+      return await response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  });
+  
 // delete a post
 
 export const delPost = createAsyncThunk("post/delete/:id", async ({ id }) => {
@@ -83,6 +94,19 @@ export const postSlice = createSlice({
       [delPost  .rejected]: (state) => {
         state.status = "failed";
       },
+        // update extrareducers
+
+    [editPost.pending]: (state) => {
+        state.status = "pending";
+      },
+      [editPost.fulfilled]: (state, action) => {
+        state.status = "successful";
+        state.lastPostUpdated = action.payload.Post
+      },
+      [editPost.rejected]: (state) => {
+        state.status = "failed";
+      },
+     
   
 
     },
