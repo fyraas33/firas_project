@@ -16,9 +16,9 @@ function Home() {
         
         
         
-          <img className='covrr' src='cover1.jpg' />
+          <img className='covrr' data-aos="fade-right" data-aos-duration="1000" src='cover1.jpg' />
       </div>
-      <div >
+      <div className='homee'>
         <h2 className='cat1'>Phone Repairer</h2>
          <div className='cover-scroll-layout-talel'>
         {posts?.filter(el=>el.category === "Phone repairer").filter(el=>el?.status).map((el,i)=><Card el={el}/>)}

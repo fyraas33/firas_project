@@ -18,7 +18,7 @@ const post=location.state.post
         className="cardds-image"
         style={{ backgroundImage: `url(${post?.image[0]?.url})` }}
       />
-      <div className="cardds-content">
+      <div className="cardds-content" data-aos="zoom-in">
         <h1>{post?.postName}</h1>
         <div className="subtitle">{post?.category}</div>
         <p>

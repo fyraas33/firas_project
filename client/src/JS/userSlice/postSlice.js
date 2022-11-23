@@ -45,7 +45,33 @@ export const delPost = createAsyncThunk("post/delete/:id", async ({ id }) => {
       console.log(error);
     }
   });
+//all feeds
+export const allFeeds = createAsyncThunk("post/allfeeds", async () => {
+  try {
+    let result = await axios.get("http://localhost:5000/post/allfeeds");
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+});
+//add feeds
+export const addFeed = createAsyncThunk(
+  "/files/feedback/:id",
+  async ({ id, feed }) => {
+    try {
+      console.log(feed);
+      console.log(id);
+      let result = await axios.put(
+        `http://localhost:5000/post/feedback/${id}`,
+        feed
+      );
 
+      return result.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
 
 
 const initialState = {
@@ -106,8 +132,34 @@ export const postSlice = createSlice({
       [editPost.rejected]: (state) => {
         state.status = "failed";
       },
-     
-  
+     //all feeds
+     [allFeeds.pending]: (state) => {
+      state.status = "pending";
+      state.isLoading = true;
+    },
+    [allFeeds.fulfilled]: (state, action) => {
+      state.status = "fulfilled";
+      state.feeds = action.payload?.data?.allfeeds;
+      state.isLoading = false;
+    },
+    [allFeeds.failed]: (state) => {
+      state.status = "failed";
+      state.isLoading = false;
+    },
+  // add feeds
+  [addFeed.pending]: (state) => {
+    state.status = "pending";
+    state.isLoading = true;
+  },
+  [addFeed.rejected]: (state) => {
+    state.status = "fail";
+    state.isLoading = false;
+  },
+  [addFeed.fulfilled]: (state, action) => {
+    state.status = "success";
+    state.isLoading = false;
+    state.feeds = action.payload?.result;
+  },
 
     },
    

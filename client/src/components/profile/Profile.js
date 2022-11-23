@@ -96,8 +96,9 @@ function Profile({ping,setPing}) {
                   </div>
                 </div>
               </div>
-              <div className="card-body">
-              <Outlet />
+              <div className="card-body" data-aos="fade-up"
+     data-aos-duration="3000">
+              <Outlet  />
               </div>
             </div>
           </div>

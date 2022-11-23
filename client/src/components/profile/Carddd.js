@@ -14,7 +14,7 @@ function Carddd({  el }) {
      
         {" "}
         <div>
-         <div className="containerr">
+         <div className="containerr" data-aos="flip-up" data-aos-duration="1000">
             <div className="flex-containerr">
               <div className="cardd">
                        <div

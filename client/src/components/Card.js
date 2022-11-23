@@ -15,13 +15,13 @@ function Card({el}) {
        
       <Link to={"/details"} state={{post:el}}> <div className="containerr">
   <div className="flex-containerr">
-    <div className="cardd">
+    <div className="cardd" data-aos="flip-up" data-aos-duration="1000">
       
       <div
         className="cardd-image"
         style={{ backgroundImage: `url(${el?.image[0]?.url})` }}
       />
-      <div className="cardd-content">
+      <div className="cardd-content" data-aos="flip-right">
         <h1>{el?.postName}</h1>
         <div className="subtitle">{el?.category}</div>
         <p>

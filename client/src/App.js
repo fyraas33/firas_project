@@ -25,6 +25,7 @@ import AdminRoute from "./routes/AdminRoute";
 import Alluser from "./components/dashboard/Alluser";
 import Postcard from "./components/dashboard/Postcard";
 import { Footer } from "./components/Footer";
+import Test123 from "./components/Test123";
 
 
 
@@ -57,6 +58,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/contact" element={<Contactus />} />
         <Route path="/details" element={<Details />} />
+        <Route path="/test" element={<Test123 />} />
 
         <Route element={<PrivateRoute />}>
 

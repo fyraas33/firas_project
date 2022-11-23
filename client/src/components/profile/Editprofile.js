@@ -9,7 +9,7 @@ const Test1 = ({ping,setPing})=> {
   return (
     <div>
        
-                <form>
+                <form data-aos="fade-up" data-aos-duration="1000">
                   <h6 className="heading-small text-muted mb-4">User information</h6>
                   <div className="pl-lg-4">
                     <div className="row1">
